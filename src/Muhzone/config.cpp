@@ -49,7 +49,7 @@ class CfgMods {
         action = "https://muhzone.de/";
 
         // mod version
-        version = "0.4";
+        version = "0.5";
 
         // flags
         hideName = 1;

@@ -1,5 +1,11 @@
 # Changelog
 
+## Version 0.5
+
+**Release Date:** 2021-11-10
+
+- add translations for trader mod configuration
+
 ## Version 0.4
 
 **Release Date:** 2021-11-09
