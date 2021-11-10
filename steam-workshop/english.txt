@@ -1,0 +1,19 @@
+This is a DayZ modification for the Muhzone.de DayZ server.
+
+[b]Note:[/b] You only need this mod if you want to play on the Muhzone.de server.
+
+This mod currently includes the following features:
+[list]
+[*]Custom cow themed loading screen
+[*]Translations in German and English
+[/list]
+
+[h1]License[/h1]
+This mod is licensed under the [b]Dayz Public License (DPL)[/b].
+
+With this license you are free to adapt (i.e. modify, rework or update) and share (i.e. copy, distribute or transmit) the material under the following conditions:
+[list]
+[*][b]Attribution[/b] - You must attribute the material in the manner specified by the author or licensor (but not in any way that suggests that they endorse you or your use of the material).
+[*][b]Noncommercial[/b] - You may not use this material for any commercial purposes.
+[*][b]Dayz Only[/b] - You may not convert or adapt this material to be used in other games than Dayz.
+[/list]
