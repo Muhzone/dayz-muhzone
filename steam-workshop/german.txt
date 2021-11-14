@@ -6,6 +6,8 @@ Diese Mod beinhaltet derzeit die folgenden Funktionen:
 [list]
 [*]Angepasster Ladebildschirm mit Kuh-Motiv
 [*]Übersetzungen auf German und Englisch
+[*]Erweiterte Heil-Funktionen für Admins
+[*]Angepasste Werbetafeln
 [/list]
 
 [h1]Lizenz[/h1]

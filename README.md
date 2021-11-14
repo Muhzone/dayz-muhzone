@@ -8,6 +8,8 @@ This mod currently includes the following features:
 
 - Custom cow themed loading screen
 - Translations in German and English
+- Extended admin heal functions
+- Custom billboards
 
 ## License
 
