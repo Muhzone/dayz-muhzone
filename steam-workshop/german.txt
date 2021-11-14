@@ -5,9 +5,10 @@ Server Mod für den Muhzone.de DayZ Server.
 Diese Mod beinhaltet derzeit die folgenden Funktionen:
 [list]
 [*]Angepasster Ladebildschirm mit Kuh-Motiv
-[*]Übersetzungen auf German und Englisch
+[*]Übersetzungen auf Deutsch und Englisch
 [*]Erweiterte Heil-Funktionen für Admins
-[*]Angepasste Werbetafeln
+[*]Individuelle Werbetafeln
+[*]Individuelle Getränke
 [/list]
 
 [h1]Lizenz[/h1]

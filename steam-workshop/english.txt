@@ -8,6 +8,7 @@ This mod currently includes the following features:
 [*]Translations in German and English
 [*]Extended admin heal functions
 [*]Custom billboards
+[*]Custom drinks
 [/list]
 
 [h1]License[/h1]
