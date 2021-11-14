@@ -11,6 +11,7 @@ class CfgPatches {
         requiredVersion = 0.1;
         requiredAddons[] = {
             "DZ_Data",
+            "DZ_Structures_Signs",
             "JM_COT_Scripts"
         };
     };
@@ -68,5 +69,24 @@ class CfgMods {
                 files[] = { "Muhzone/scripts/5_Mission" };
             };
         };
+    };
+};
+
+/**
+ * Someone at BI decided back in the days of "Operation Flashpoint" that buildings are "Vehicles".
+ *
+ * Err... right. Why not.
+ */
+class CfgVehicles
+{
+    class HouseNoDestruct;
+
+    /**
+     * Custom Muhzone billboard model
+     */
+    class land_billboard_muhzone_1: HouseNoDestruct
+    {
+        scope=2;
+        model="\Muhzone\structures\signs\billboards\billboard_muhzone_1.p3d";
     };
 };
