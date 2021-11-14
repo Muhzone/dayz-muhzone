@@ -10,7 +10,8 @@ class CfgPatches {
     class Muhzone {
         requiredVersion = 0.1;
         requiredAddons[] = {
-            "DZ_Data"
+            "DZ_Data",
+            "JM_COT_Scripts"
         };
     };
 };
@@ -61,6 +62,10 @@ class CfgMods {
             class gameScriptModule {
                 value = "";
                 files[] = { "Muhzone/scripts/3_Game" };
+            };
+            class missionScriptModule {
+                value = "";
+                files[] = { "Muhzone/scripts/5_Mission" };
             };
         };
     };
