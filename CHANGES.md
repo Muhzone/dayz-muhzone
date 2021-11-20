@@ -1,5 +1,20 @@
 # Changelog
 
+## Version 0.7
+
+**Release Date:** 2021-11-20
+
+- add custom milk bottle
+- increase custom billboard brightness and saturation
+
+## Version 0.6
+
+**Release Date:** 2021-11-14
+
+- update trader translations
+- extend COT heal function
+- add custom billboard
+
 ## Version 0.5
 
 **Release Date:** 2021-11-10
