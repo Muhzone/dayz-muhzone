@@ -5,6 +5,10 @@ modded class JMPlayerModule: JMRenderableModuleBase
 {
     /**
      * Extend heal function to also remove active "agents" (e.g. infections) from a player.
+     *
+     * @param guids    Player GUIDs to heal.
+     * @param ident    PlayerIdentity of the player executing the heal command.
+     * @param instance JMPlayerInstance of the player executing the heal command.
      */
     override private void Exec_Heal(array <string> guids, PlayerIdentity ident, JMPlayerInstance instance = NULL)
     {
