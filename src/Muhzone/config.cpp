@@ -56,7 +56,7 @@ class CfgMods {
         action = "https://muhzone.de/";
 
         // mod version
-        version = "0.7";
+        version = "0.8";
 
         // flags
         hideName = 1;
