@@ -1,5 +1,11 @@
 # Changelog
 
+## Version 0.8
+
+**Release Date:** 2021-11-26
+
+- add server panel translations
+
 ## Version 0.7
 
 **Release Date:** 2021-11-20

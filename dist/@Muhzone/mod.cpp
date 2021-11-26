@@ -7,4 +7,4 @@ tooltip = "$STR_MUHZONE_MOD_TOOLTIP";
 overview = "$STR_MUHZONE_MOD_OVERVIEW";
 action = "https://muhzone.de/";
 author = "$STR_MUHZONE_MOD_AUTHOR";
-version = "0.7";
+version = "0.8";
