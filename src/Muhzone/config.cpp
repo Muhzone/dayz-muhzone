@@ -1,4 +1,18 @@
 /**
+ * Define the visibility of objects as constants for better readability.
+ */
+#define private 0
+#define protected 1
+#define public 2
+
+/**
+ * This definition uses the same ID which "Liquid_Framework" lists on their Steam workshop page.
+ * We did not decide whether we want to add an entire framework just to add one type of liquid yet.
+ * Therefore, we are trying to be "forwards compatible" in case we decide to use it later.
+ */
+#define liquid_id_milk 524288
+
+/**
  * Apparently, this is where we are supposed to define non script- or input-related dependencies.
  *
  * The difference between CfgPatches and CfgMods doesn't make sense to me yet and the examples
@@ -45,15 +59,16 @@ class CfgMods {
         logoSmall = "Muhzone/images/muhzone.paa";
 
         // icon hover text
-        tooltip="$STR_MUHZONE_MOD_TOOLTIP";
-        tooltipOwned="$STR_MUHZONE_MOD_TOOLTIP";
+        tooltip = "$STR_MUHZONE_MOD_TOOLTIP";
+        tooltipOwned = "$STR_MUHZONE_MOD_TOOLTIP";
 
         // mod description
         overview = "$STR_MUHZONE_MOD_OVERVIEW";
 
         // author information
         author = "$STR_MUHZONE_MOD_AUTHOR";
-        action = "https://muhzone.de/";
+        credits = "MuhChy";
+        action = "$STR_MUHZONE_MOD_WEBSITE";
 
         // mod version
         version = "0.8";
@@ -71,8 +86,8 @@ class CfgMods {
             };
             class worldScriptModule
             {
-                value="";
-                files[]= { "Muhzone\scripts\4_World" };
+                value = "";
+                files[] = { "Muhzone\scripts\4_World" };
             };
             class missionScriptModule {
                 value = "";
@@ -93,43 +108,121 @@ class CfgVehicles
     class Bottle_Base;
 
     /**
-     * Custom Muhzone billboard model
+     * Custom Muhzone billboard model.
      */
-    class land_billboard_muhzone_1: HouseNoDestruct
+    class MuhzoneBillboardBase: HouseNoDestruct
     {
-        scope=2;
-        model="\Muhzone\structures\signs\billboards\billboard_muhzone_1.p3d";
+        scope = private;
+
+        displayName = "$STR_MUHZONE_BILLBOARD_BASE_NAME";
+
+        model = "\Muhzone\structures\signs\billboards\billboard_muhzone.p3d";
+
+        // enable main "bill" texture to be replaced using hiddenSelectionsTextures
+        hiddenSelections[] =
+        {
+            "bill"
+        };
     };
+
+    /**
+     * Custom Muhzone billboard "server advertisement"
+     */
+    class MuhzoneBillboardAdvertisement: MuhzoneBillboardBase
+    {
+        scope = public;
+
+        displayName="$STR_MUHZONE_BILLBOARD_ADVERTISEMENT_NAME";
+
+        // use alternate "server advertisement" texture
+        hiddenSelectionsTextures[] =
+        {
+            "Muhzone\structures\signs\billboards\data\billboard_muhzone_advert_ca.paa"
+        };
+    };
+
+    /**
+     * Custom Muhzone billboard model "server rules".
+     */
+    class MuhzoneBillboardServerRules: MuhzoneBillboardBase
+    {
+        scope = public;
+
+        displayName = "$STR_MUHZONE_BILLBOARD_SERVER_RULES_NAME";
+
+        // use alternate "server rules" texture
+        hiddenSelectionsTextures[] =
+        {
+            "Muhzone\structures\signs\billboards\data\billboard_muhzone_rules_ca.paa"
+        };
+    };
+
+    /**
+     * Custom Muhzone billboard model "TeamSpeak".
+     */
+    class MuhzoneBillboardTeamSpeak: MuhzoneBillboardBase
+    {
+        scope = public;
+
+        displayName = "$STR_MUHZONE_BILLBOARD_TEAMSPEAK_NAME";
+
+        // use alternate "teamspeak" texture
+        hiddenSelectionsTextures[] =
+        {
+            "Muhzone\structures\signs\billboards\data\billboard_muhzone_teamspeak_ca.paa"
+        };
+    };
+
+    /**
+     * Custom Muhzone billboard model "Moo".
+     */
+    class MuhzoneBillboardMoo: MuhzoneBillboardBase
+    {
+        scope = public;
+
+        displayName = "$STR_MUHZONE_BILLBOARD_MOO_NAME";
+
+        // use alternate "moo" texture
+        hiddenSelectionsTextures[] =
+        {
+            "Muhzone\structures\signs\billboards\data\billboard_muhzone_moo_ca.paa"
+        };
+    };
+
     /**
      * Custom Muhzone milk bottle.
-     *
-     * Milk bottle uses the same model and textures (except color) as the water bottle, so we
-     * can re-use the water bottle damage stages.
      */
     class MuhzoneMilkBottle: Bottle_Base
     {
-        scope=2;
-        displayName="$STR_MUHZONE_BOTTLE_MILK_NAME";
-        descriptionShort="$STR_MUHZONE_BOTTLE_MILK_DESCRIPTION";
-        model="\dz\gear\drinks\WaterBottle.p3d";
-        weight=25;
-        itemSize[]={1,3};
-        destroyOnEmpty=0;
-        varQuantityDestroyOnMin=0;
-        varLiquidTypeInit=524288;
-        liquidContainerType="1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 256 + 512 + 1024 + 2048 + 4096 + 8192 + 16384 + 32768 + 65536 + 524288 - (1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 256) -32768";
-        varQuantityInit=1000;
-        varQuantityMin=0;
-        varQuantityMax=1000;
-        isMeleeWeapon=1;
-        hiddenSelections[]=
+        scope = public;
+
+        displayName = "$STR_MUHZONE_BOTTLE_MILK_NAME";
+        descriptionShort = "$STR_MUHZONE_BOTTLE_MILK_DESCRIPTION";
+
+        model = "\dz\gear\drinks\WaterBottle.p3d";
+        weight = 25;
+        itemSize[] = {1,3};
+        destroyOnEmpty = 0;
+        varQuantityDestroyOnMin = 0;
+        varLiquidTypeInit = liquid_id_milk;
+        liquidContainerType = "1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 256 + 512 + 1024 + 2048 + 4096 + 8192 + 16384 + 32768 + 65536 + 524288 - (1 + 2 + 4 + 8 + 16 + 32 + 64 + 128 + 256) -32768";
+        varQuantityInit = 1000;
+        varQuantityMin = 0;
+        varQuantityMax = 1000;
+        isMeleeWeapon = 1;
+        hiddenSelections[] =
         {
             "zbytek"
         };
-        hiddenSelectionsTextures[]=
+        hiddenSelectionsTextures[] =
         {
             "Muhzone\gear\drinks\data\loot_muhzone_milkbottle_ca.paa"
         };
+
+        /**
+         * Milk bottle uses the same model and textures (except color) as the water bottle, so we
+         * can re-use the water bottle damage stages.
+         */
         class DamageSystem
         {
             class GlobalHealth
@@ -137,7 +230,7 @@ class CfgVehicles
                 class Health
                 {
                     hitpoints=50;
-                    healthLevels[]=
+                    healthLevels[] =
                     {
                         {
                             1,
@@ -174,49 +267,54 @@ class CfgVehicles
                 };
             };
         };
+
+        /**
+         * The same goes for animations. You handle a milk bottle the same way you handle a water
+         * bottle, don't you?
+         */
         class AnimEvents
         {
             class SoundWeapon
             {
                 class WaterBottle_in_B
                 {
-                    soundSet="WaterBottle_in_B_SoundSet";
-                    id=202;
+                    soundSet = "WaterBottle_in_B_SoundSet";
+                    id = 202;
                 };
                 class WaterBottle_in_C
                 {
-                    soundSet="WaterBottle_in_C_SoundSet";
-                    id=203;
+                    soundSet = "WaterBottle_in_C_SoundSet";
+                    id = 203;
                 };
                 class WaterBottle_in_C1
                 {
-                    soundSet="WaterBottle_in_C1_SoundSet";
-                    id=204;
+                    soundSet = "WaterBottle_in_C1_SoundSet";
+                    id = 204;
                 };
                 class WaterBottle_out_A
                 {
-                    soundSet="WaterBottle_out_A_SoundSet";
-                    id=205;
+                    soundSet = "WaterBottle_out_A_SoundSet";
+                    id = 205;
                 };
                 class WaterBottle_out_B
                 {
-                    soundSet="WaterBottle_out_B_SoundSet";
-                    id=206;
+                    soundSet = "WaterBottle_out_B_SoundSet";
+                    id = 206;
                 };
                 class WellPond_loop
                 {
-                    soundSet="WellPond_loop_SoundSet";
-                    id=209;
+                    soundSet = "WellPond_loop_SoundSet";
+                    id = 209;
                 };
                 class WellBottle_loop
                 {
-                    soundSet="WellBottle_loop_SoundSet";
-                    id=210;
+                    soundSet = "WellBottle_loop_SoundSet";
+                    id = 210;
                 };
                 class pickup
                 {
-                    soundSet="WaterBottle_pickup_SoundSet";
-                    id=797;
+                    soundSet = "WaterBottle_pickup_SoundSet";
+                    id = 797;
                 };
             };
         };
@@ -232,7 +330,7 @@ class CfgVehicles
  */
 class cfgLiquidDefinitions {
     class Milk {
-        type = 524288;
+        type = liquid_id_milk;
         displayName = "$STR_MUHZONE_LIQUID_TYPE_MILK_NAME";
         flammability = -10;
 

@@ -62,14 +62,14 @@ modded class LoadingScreen
 
         #ifdef PLATFORM_CONSOLE
         #ifdef PLATFORM_XBOX
-		#ifdef BUILD_EXPERIMENTAL
-			Widget exp_notifiaction = m_WidgetRoot.FindAnyWidget("notification_root");
-			if (exp_notifiaction)
-			{
-				exp_notifiaction.Show(true);
-			}
-		#endif
-		#endif
+        #ifdef BUILD_EXPERIMENTAL
+            Widget exp_notifiaction = m_WidgetRoot.FindAnyWidget("notification_root");
+            if (exp_notifiaction)
+            {
+                exp_notifiaction.Show(true);
+            }
+        #endif
+        #endif
         #endif
 
         m_ModdedWarning.Show( g_Game.ReportModded() );
